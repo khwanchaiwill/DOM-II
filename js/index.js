@@ -19,11 +19,11 @@ Using the 10 unique events, find ways to update the DOM in creative ways. For ex
 const mainNav = document.querySelectorAll('a')
 const textH2= document.querySelector('h2')
 const imgBus = document.querySelector('.intro')
-const textCont = document.querySelector('text-content')
+
 const imgCont = document.querySelector('.img-content')
 
 
-//scroll event
+// 1 scroll event
 function body(event){
 	document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1534008897995-27a23e859048?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=humphrey-muleba-TejFa7VW5e4-unsplash.jpg')"
 	document.body.style.backgroundPosition = 'center'
@@ -31,7 +31,7 @@ function body(event){
 }
 document.addEventListener('scroll', body);
 
-// mouseover event
+//2.  mouseover event
 function mouseOver(event){
 	let mouseover = 0;
 	for(let i = 0; i < mainNav.length; i++){
@@ -41,8 +41,8 @@ function mouseOver(event){
 }
 document.addEventListener('mouseover', mouseOver)
 
-// keydown event 
-function key(event){
+// 3. keydown event 
+function keyDown(event){
 	
 	let anyKey = 0;
 	for(let i = 0; i < mainNav.length; i++){
@@ -50,21 +50,52 @@ function key(event){
 		anyKey.style.color = 'black'	
 	}
 	}
-document.addEventListener('keydown', key)
+document.addEventListener('keydown', keyDown)
 
-// dblclick event
+// 4. dblclick event
 function imgFunBus(event){
-	document.querySelector('img').remove('img')
+	document.querySelector('img').style.visibility = 'hidden'
+	alert('dblclick to to hide image')
 }
 document.addEventListener('dblclick', imgFunBus)
 
-// mouse
-function reSizing(event){	
-	if(size > 100){
-		 document.getElementsByTagName('h2').style.color = 'green'
-	}
+// 5. click event
+function imagCont(event){
+	document.querySelector('img').style.visibility = 'visible'
+}	
+document.addEventListener('click', imagCont)
+
+// 6. dblclick event change background color
+function changeColor(event){
+	document.querySelector('.intro').style.backgroundColor = 'yellow'
 }
-document.addEventListener('resize', reSizing)
+document.addEventListener('dblclick',changeColor)
 
+// 7. click
 
+function changeBack(event){
+	document.querySelector('.intro').style.backgroundColor = 'white'
+}
+document.addEventListener('click',changeBack)
 
+// 8 keyup
+function key(event){
+	let select = document.getElementById('selector');
+	select.value = select.value.toUpperCase();
+}
+document.addEventListener('keyup', key)
+
+// 9. focus
+
+function onfocus(event){
+	document.getElementById('selector').style.backgroundColor = 'pink'
+}
+document.getElementById('selector').addEventListener('focus', onfocus)
+
+// 10. search
+function mySearch(event){
+	const search = document.getElementById('searching');
+	alert(`you looking for:  ${search.value}`)
+	
+}
+document.getElementById('searching').addEventListener('search', mySearch)
